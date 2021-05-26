@@ -1,2 +1,12 @@
 # Covid-19-Infections-Twitter-Labels
-Annotated dataset of Tweets indicating an actual or potential COVID-19 infection
+## Annotated dataset of Tweets indicating an actual or potential COVID-19 infection
+We provide an annotated dataset that allows identifying actual and potential COVID-19 patients as well as groups of potential COVID-19 positive contacts using Twitter.
+The dataset consists of three columns. The first column represents the tweetId originated from the Twitter API. The other two columns represent our manual annotation among two dimensions, the user dimension and the contact dimension.
+### User Dimension
+The first dimension contains the information about the users themselves (who wrote the tweets) and states whether they have (had) a COVID-19 infection. This dimension consists of three classes: Actual, Potential, and No. Following our annotation guidelines, we annotated all tweets with ‘Actual’ if users explicitly state that they currently have or have had a COVID-19 infection. We annotated all tweets with ‘Potential’ if the users think that they might have COVID-19. This annotation includes severe symptoms like fever and shortness of breath, waiting for test results, or direct speculations (‘I might have COVID’). Otherwise, if none of the previous criteria applies, we annotated the tweet with ‘No’ on the user dimension. Splitting the actual and the potential users has multiple benefits.
+
+### Contact Dimension
+The second dimension contains information about the users’ immediate contacts, i.e., if they mention someone they know who has (had) a COVID-19 infection. The classes are Family, Work, Friends, School (including childcare), Patients, Famous Persons (e.g., from the media or people who are on Twitter), Other (someone they know like neighbors, the cashier of the grocery store they met), and No Contact. The latter includes tweets mostly about COVID-19 relevant information but not about an infected person (like case numbers in a specific region) or tweets about people without contact like infections at a local business or school. The classes are inspired by Klein et al. (2021), even if they do not use them as separate classes themselves. Since users can write about multiple persons in a single tweet, we selected the closest class matching for a tweet. Our annotation guideline consists of the following priority: Family > Friends > Work > School > Patients > Other > Famous Persons > No Contact.
+
+## References
+Klein, A. Z., Magge, A., O’Connor, K., Amaro, J. I. F., Weissenbacher, D., and Hernandez, G. G. 2021. “Toward Using Twitter for Tracking COVID-19: A Natural Language Processing Pipeline and Exploratory Data Set,” Journal of Medical Internet Research (23:1), p. e25314. (https://doi.org/10.2196/25314).
